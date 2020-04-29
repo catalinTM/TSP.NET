@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcGreeter.Protos";
+
+service CommentService {
+	rpc AddComment (Comment) returns (Reply);
+	rpc UpdateComment (Comment) returns (Comment);
+	rpc RetrieveComment (CommentID) returns (StudentList);
+}
+
+message Comment {
+	string CommentId = 1;
+	string Text = 2;
+}
+
+message Reply  {
+	string result = 1;
+	string isOk = 2;
+}
+
+message CommentID {
+	int32 commentId = 1;
+}
+
+message Empty {}
+
+message CommentList {
+   repeated Comment items = 1;
+}
